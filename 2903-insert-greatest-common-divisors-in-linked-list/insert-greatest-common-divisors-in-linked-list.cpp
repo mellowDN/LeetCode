@@ -8,14 +8,15 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+ //#include <numeric>
 class Solution {
 public:
-    int gcd(int a, int b){
+    /*int gcd(int a, int b){
         if(b==0){
             return a;
         }
         return gcd(b, a%b);
-    }
+    }*/
     ListNode* insertGreatestCommonDivisors(ListNode* head) {
         ListNode* curr= head;
         ListNode* forward= head->next;
