@@ -3,30 +3,30 @@ public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
         int startRow=0;
         int startCol=0;
-        int row= matrix.size()-1;
-        int col= matrix[0].size()-1;
-        int count=matrix.size()*matrix[0].size();
-        int total=0;
-        vector<int>nums;
-        while(total<count){
-            for(int i=startCol; i<=col && total<count; i++){
+        int maxRow= matrix.size()-1;
+        int maxCol= matrix[0].size()-1;
+        int total= matrix.size()*matrix[0].size();
+        int count=0;
+        vector<int> nums;
+        while(count< total){
+            for(int i= startCol; i<=maxCol && count<total; i++){
                 nums.push_back(matrix[startRow][i]);
-                total++;
+                count++;
             }
             startRow++;
-            for(int i=startRow; i<=row && total<count; i++){
-                nums.push_back(matrix[i][col]);
-                total++;
+            for(int i=startRow; i<=maxRow && count<total; i++){
+                nums.push_back(matrix[i][maxCol]);
+                count++;
             }
-            col--;
-            for(int i=col; i>=startCol && total<count; i--){
-                nums.push_back(matrix[row][i]);
-                total++;
+            maxCol--;
+            for(int i=maxCol; i>=startCol && count<total; i--){
+                nums.push_back(matrix[maxRow][i]);
+                count++;
             }
-            row--;
-            for(int i=row; i>=startRow && total<count; i--){
+            maxRow--;
+            for(int i=maxRow; i>=startRow && count<total; i--){
                 nums.push_back(matrix[i][startCol]);
-                total++;
+                count++;
             }
             startCol++;
         }
