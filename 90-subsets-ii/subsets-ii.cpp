@@ -3,7 +3,7 @@ public:
 
     void solve(vector<int>& nums, vector<vector<int>>& ans, vector<int> ds, int idx){
         if(idx>=nums.size()){
-            sort(ds.begin(), ds.end());
+            //sort(ds.begin(), ds.end());
             for(int i=0; i<ans.size(); i++){
                 if(ds==ans[i]) return;
             }
@@ -17,6 +17,7 @@ public:
     }
 
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
         vector<vector<int>> ans;
         vector<int> ds;
         solve(nums, ans, ds, 0);
